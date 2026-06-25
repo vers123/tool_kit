@@ -1,5 +1,7 @@
 # 米游社工具箱 (miHoYo ToolKit)
 
+Language / 语言: [English](README.md) | [中文](README_zh.md)
+
 基于 Playwright 的米游社数据抓取和提取工具。采用策略模式、管道模式和增量更新机制，实现高可扩展、低耦合的架构设计。
 
 ## 功能特性

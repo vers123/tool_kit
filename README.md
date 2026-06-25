@@ -1,5 +1,7 @@
 # miHoYo ToolKit
 
+Language / 语言: [English](README.md) | [中文](README_zh.md)
+
 A Python-based data scraping and extraction toolkit for miHoYo community platforms (米游社). Built with Playwright, featuring strategy patterns, pipeline processing, and incremental updates.
 
 ## Features
