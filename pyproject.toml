@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "miHoYo_ToolKit"
+version = "1.0.0"
+description = "米游社数据抓取和提取工具"
+requires-python = ">=3.10"
+dependencies = [
+    "playwright>=1.40.0",
+    "pyyaml>=6.0",
+    "aiofiles>=23.0.0",
+    "pydantic>=2.0.0",
+    "loguru>=0.7.0",
+]
+
+[project.scripts]
+toolkit = "cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core", "models", "strategies", "pipelines", "utils", "cli", "tests"]

@@ -1,0 +1,68 @@
+browser:
+  headless: false
+  wait_seconds: 3
+  timeout: 120000
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+  args:
+    - "--no-sandbox"
+    - "--disable-gpu"
+    - "--disable-dev-shm-usage"
+
+scroll:
+  delay: 2.0
+  max_attempts: 50
+
+retry:
+  max_attempts: 3
+  delay: 2.0
+
+incremental:
+  enabled: true
+  stop_on_existing: true
+  merge_data: true
+
+backup:
+  enabled: true
+  max_backups: 10
+  directory: "data/backups"
+
+output:
+  directories:
+    html: "data/html"
+    images: "data/images"
+    data: "data/results"
+    logs: "logs"
+
+sources:
+  user_posts:
+    name: "用户发帖"
+    url: "https://www.miyoushe.com/ys/accountCenter/postList?id=75276539"
+    html_file: "user_posts.html"
+    data_file: "posts.txt"
+    extractor: "post"
+    url_pattern: "/ys/article/"
+
+  character_baike:
+    name: "角色图鉴"
+    url: "https://baike.mihoyo.com/ys/obc/channel/map/189/25"
+    html_file: "character_list.html"
+    data_file: "image_urls.txt"
+    extractor: "image"
+    url_pattern: "/article/"
+
+  genshin_news:
+    name: "原神新闻"
+    url: "https://ys.mihoyo.com/main/news"
+    html_file: "news_page.html"
+    data_file: "news.txt"
+    extractor: "news"
+    url_pattern: "/main/news/detail/"
+
+  tutorial:
+    name: "教程页面"
+    url_template: "https://act.mihoyo.com/ys/ugc/tutorial/detail/{tutorial_id}"
+    html_file_template: "tutorial_{tutorial_id}.html"
+    data_file_template: "characters_{tutorial_id}.txt"
+    extractor: "tutorial"
+    default_params:
+      tutorial_id: "mh4imrrhzdzi"
